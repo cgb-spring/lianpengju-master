@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Implementation-Title: spring-oxm
+Automatic-Module-Name: spring.oxm
+Implementation-Version: 5.2.9.BUILD-SNAPSHOT
+Created-By: 1.8.0_181 (Oracle Corporation)
+

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    <bean class="com.mashibing.MyBeanFactoryPostProcessorBySelf"></bean>-->
+    <bean id="a" class="com.mashibing.cycle.A">
+        <property name="name" value="zhangsan"></property>
+        <property name="b" ref="b"></property>
+    </bean>
+    <bean id="b" class="com.mashibing.cycle.B">
+        <property name="a" ref="a"></property>
+    </bean>
+<!--    <bean id="c" class="com.mashibing.cycle.C">-->
+<!--        <property name="a" ref="a"></property>-->
+<!--    </bean>-->
+
+    <bean id="logger" class="com.mashibing.cycle.Logger" />
+
+        <!-- 切面：切入点和通知 -->
+    <aop:config>
+        <aop:aspect id="logger" ref="logger">
+            <aop:pointcut expression="execution(* com.mashibing.cycle.*.*(..))" id="method" />
+            <aop:before method="recordBefore" pointcut-ref="method" />
+            <aop:after method="recordAfter" pointcut-ref="method" />
+        </aop:aspect>
+    </aop:config>
+</beans>

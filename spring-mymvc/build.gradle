@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.springframework'
+version '5.2.9.BUILD-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(project(":spring-context"))
+    compile(project(":spring-context-support")) // freemarker需要，不加可能报错
+    compile(project(":spring-webmvc"))
+    compile(project(":spring-beans"))
+    compile(project(":spring-core"))
+    compile(project(":spring-jdbc"))
+    compile(project(":spring-orm"))
+    compile(project(":spring-tx"))
+    compile(project(":spring-web"))
+    compile(project(":spring-context-indexer"))
+    compile(project(":spring-expression"))
+    compile(project(":spring-instrument"))
+    compile(project(":spring-jcl"))
+    compile(project(":spring-jms"))
+    compile(project(":spring-messaging"))
+    compile(project(":spring-oxm"))
+    compile(project(":spring-test"))
+    compile(project(":spring-webflux"))
+    compile(project(":spring-websocket"))
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+    compile 'javax.servlet.jsp.jstl:jstl:1.2'
+    compile 'org.apache.taglibs:taglibs-standard-spec:1.2.5'
+    compile 'org.apache.taglibs:taglibs-standard-impl:1.2.5'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'commons-fileupload:commons-fileupload:1.4'
+}

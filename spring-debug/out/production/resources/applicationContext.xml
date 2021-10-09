@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:msb="http://www.mashibing.com/schema/user"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.mashibing.com/schema/user http://www.mashibing.com/schema/user.xsd">
+
+<!--    <msb:user id="msb" userName="lian" email="lian@msb.com" password="123456"></msb:user>-->
+    <context:component-scan base-package="com.mashibing" ></context:component-scan>
+    <bean id="user" class="com.mashibing.supplier.User" ></bean>
+    <context:property-placeholder location="classpath:db.properties" ></context:property-placeholder>
+    <bean class="com.mashibing.selfbdrpp.MyBeanDefinitionRegistryPostProcessor"></bean>
+<!--    <bean id="person2" class="com.mashibing.Person" depends-on="">-->
+<!--        <constructor-arg index="0" value="2">-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg index="1" value="lisi"></constructor-arg>-->
+<!--    </bean>-->
+    <bean id="person"  class="com.mashibing.Person" scope="prototype">
+        <property name="id" value="1"></property>
+        <property name="name" value="zhangsan"></property>
+    </bean>
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+            <property name="username" value="${jdbc.username}"></property>
+    </bean>
+
+    <bean id="studentConverter" class="com.mashibing.selfConverter.StudentConverter"></bean>
+    <bean id ="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="studentConverter"></ref>
+            </set>
+        </property>
+    </bean>
+<!--    <bean class="com.mashibing.MyBeanFactoryPostProcessor"></bean>-->
+<!--    <bean id="a" class="com.mashibing.cycle.A" scope="prototype">-->
+<!--        <property name="b" ref="b"></property>-->
+<!--    </bean>-->
+<!--    <bean id="b" class="com.mashibing.cycle.B" scope="prototype">-->
+<!--        <property name="a" ref="a"></property>-->
+<!--    </bean>-->
+</beans>

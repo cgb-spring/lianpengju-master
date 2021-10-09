@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!--    <context:component-scan base-package="com.mashibing"></context:component-scan>-->
+
+
+<!--&lt;!&ndash;    <bean id="person" class="com.mashibing.Person" >&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg name="id" value="1"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;        <constructor-arg name="name" value="zhangsan"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;    </bean>&ndash;&gt;-->
+<!--    <bean id="person2" class="com.mashibing.Person">-->
+<!--        <property name="id" value="2"></property>-->
+<!--        <property name="name" value="lisi"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="a" class="com.mashibing.test.A">-->
+<!--        <property name="b" ref="b"></property>-->
+<!--    </bean>-->
+<!--    <bean id="b" class="com.mashibing.test.B">-->
+<!--        <property name="a" ref="a"></property>-->
+<!--    </bean>-->
+
+<!--        <bean id="logger" class="com.mashibing.test.Logger" />-->
+
+<!--    &lt;!&ndash; 切面：切入点和通知 &ndash;&gt;-->
+<!--        <aop:config>-->
+<!--            <aop:aspect id="logger" ref="logger">-->
+<!--                <aop:pointcut expression="execution(* com.mashibing.test.*.*(..))" id="method" />-->
+<!--                <aop:before method="recordBefore" pointcut-ref="method" />-->
+<!--                <aop:after method="recordAfter" pointcut-ref="method" />-->
+<!--            </aop:aspect>-->
+<!--        </aop:config>-->
+
+    <bean class="com.mashibing.Student" id="student">
+        <property name="id" value="1"></property>
+        <property name="name" value="zhangsan"></property>
+    </bean>
+    <bean class="com.mashibing.MyBeanFactoryPostProcessor512"></bean>
+</beans>

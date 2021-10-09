@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="apple" class="com.mashibing.methodOverrides.lookup.Apple" >
+        <property name="banana" ref="banana"></property>
+    </bean>
+    <bean id="banana" class="com.mashibing.methodOverrides.lookup.Banana" scope="prototype">
+    </bean>
+<!--    <bean id="fruitplate1" class="com.mashibing.methodOverrides.lookup.FruitPlate">-->
+<!--        <lookup-method name="getFruit" bean="apple"></lookup-method>-->
+<!--    </bean>-->
+<!--    <bean id="fruitplate2" class="com.mashibing.methodOverrides.lookup.FruitPlate">-->
+<!--        <lookup-method name="getFruit" bean="banana"></lookup-method>-->
+<!--    </bean>-->
+</beans>

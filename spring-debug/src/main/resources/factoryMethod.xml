@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="person" class="com.mashibing.factoryMethod.PersonStaticFactory" factory-method="getPerson">
+        <!--constructor-arg：可以为方法指定参数-->
+        <constructor-arg value="123"></constructor-arg>
+    </bean>
+    <bean id="personInstanceFactory" class="com.mashibing.factoryMethod.PersonInstanceFactory"></bean>
+    <bean id="person2" class="com.mashibing.factoryMethod.Person" factory-bean="personInstanceFactory" factory-method="getPerson">
+        <constructor-arg value="wangwu"></constructor-arg>
+    </bean>
+</beans>

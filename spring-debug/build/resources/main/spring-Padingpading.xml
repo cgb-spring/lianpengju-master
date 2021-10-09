@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:msb="http://www.mashibing.com/schema/user"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.mashibing.com/schema/user http://www.mashibing.com/schema/user.xsd">
+    <bean id="person"  name="person1,person2,person3"   class="com.mashibing.Person">
+        <description>描述信息</description>
+        <!--constructor标签解析-->
+        <constructor-arg index="0" value="2"></constructor-arg>
+        <constructor-arg index="1" value="1"></constructor-arg>
+
+        <property name="id" value="1"></property>
+        <property name="name" value="zhangsan"></property>
+    </bean>
+
+</beans>

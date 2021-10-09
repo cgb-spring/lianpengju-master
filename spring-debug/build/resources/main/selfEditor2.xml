@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.mashibing.selfeditor2"></context:component-scan>
+<!--    <bean id="customer" class="com.mashibing.selfEditor.Customer">-->
+<!--        <property name="name" value="zhangsan"></property>-->
+<!--        <property name="address" value="河北省_邯郸市_武安市"></property>-->
+<!--    </bean>-->
+<!--    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+<!--        <property name="propertyEditorRegistrars">-->
+<!--            <list>-->
+<!--                <bean class="com.mashibing.selfEditor.AddressPropertyEditorRegistrar"></bean>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.mashibing.selfeditor2.Address">
+                    <value>com.mashibing.selfeditor2.AddressPropertyEditor</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+">
+    <bean class="com.mashibing.MyBeanFactoryPostProcessorBySelf" ></bean>
+    <bean id="logUtil" class="com.mashibing.aop.xml.util.LogUtil" ></bean>
+    <bean id="myCalculator" class="com.mashibing.aop.xml.service.MyCalculator" ></bean>
+    <aop:config>
+        <aop:aspect ref="logUtil">
+            <aop:pointcut id="myPoint" expression="execution( Integer com.mashibing.aop.xml.service.MyCalculator.*  (..))"/>
+            <aop:around method="around" pointcut-ref="myPoint"></aop:around>
+            <aop:before method="start" pointcut-ref="myPoint"></aop:before>
+            <aop:after method="logFinally" pointcut-ref="myPoint"></aop:after>
+            <aop:after-returning method="stop" pointcut-ref="myPoint" returning="result"></aop:after-returning>
+            <aop:after-throwing method="logException" pointcut-ref="myPoint" throwing="e"></aop:after-throwing>
+        </aop:aspect>
+    </aop:config>
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+</beans>

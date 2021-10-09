@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+<!--    <bean id="simpleUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
+<!--        <property name="mappings">-->
+<!--            <props>-->
+<!--                <prop key="/userlist">userController</prop>-->
+<!--            </props>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+<!--    <bean id="userController" class="com.mashibing.controller.HelloController2" />-->
+
+    <context:component-scan base-package="com.mashibing"></context:component-scan>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="17367648787"></property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+    <bean name="/test01" class="com.mashibing.controller.testController.Test01"></bean>
+    <bean id="/test02" class="com.mashibing.controller.testController.Test02"></bean>
+
+    <mvc:interceptors>
+        <!--配置的拦截器可以对具体的请求做限制，不一定所有的请求都要经过此拦截器，按照需求来指定即可-->
+<!--        <mvc:interceptor>-->
+<!--            <mvc:mapping path="/test01"/>-->
+<!--            <bean class="com.mashibing.interceptor.HandlerMappingInterceptor"></bean>-->
+<!--        </mvc:interceptor>-->
+        <bean class="com.mashibing.interceptor.HandlerMappingInterceptor"/>
+    </mvc:interceptors>
+</beans>
