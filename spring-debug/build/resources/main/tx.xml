@@ -12,7 +12,7 @@
         <property name="driverClassName" value="${jdbc.driverClassName}"></property>
     </bean>
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >
-        <constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+        <constructor-arg name="dataSource" ref="dataSource"></construc*tor-arg>
     </bean>
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
@@ -24,7 +24,7 @@
         <property name="jdbcTemplate" ref="jdbcTemplate"></property>
     </bean>
     <aop:config>
-        <aop:pointcut id="txPoint" expression="execution(* com.mashibing.tx.xml.*.*.*(..))"/>
+        <aop:pointcut id="txPoint" expression="execution( com.mashibing.tx.xml.*.*.*(..))"/>
         <aop:advisor advice-ref="myAdvice" pointcut-ref="txPoint"></aop:advisor>
     </aop:config>
     <tx:advice id="myAdvice" transaction-manager="transactionManager">

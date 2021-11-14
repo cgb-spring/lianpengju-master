@@ -29,7 +29,6 @@ import org.springframework.context.annotation.ComponentScanBeanDefinitionParser;
  * @since 2.5
  */
 public class ContextNamespaceHandler extends NamespaceHandlerSupport {
-
 	@Override
 	public void init() {
 		registerBeanDefinitionParser("property-placeholder", new PropertyPlaceholderBeanDefinitionParser());
@@ -41,5 +40,4 @@ public class ContextNamespaceHandler extends NamespaceHandlerSupport {
 		registerBeanDefinitionParser("mbean-export", new MBeanExportBeanDefinitionParser());
 		registerBeanDefinitionParser("mbean-server", new MBeanServerBeanDefinitionParser());
 	}
-
 }

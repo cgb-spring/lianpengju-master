@@ -5,6 +5,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class CustmoerTag {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-${username}.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("d_customer_tag/spring.xml");
+        User user = (User)context.getBean("msb");
+        System.out.println(user);
     }
 }

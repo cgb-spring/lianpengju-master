@@ -100,7 +100,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 		//  初始化beanDefinitionReader对象，此处设置配置文件是否要进行验证
 		initBeanDefinitionReader(beanDefinitionReader);
 		// 开始完成beanDefinition的加载
-		//string->string[]->resource[]->resource处理,读取配置文件。
+		//string[]->string->resource[]->resource处理,读取配置文件。
 		loadBeanDefinitions(beanDefinitionReader);
 	}
 
@@ -136,7 +136,7 @@ public abstract class AbstractXmlApplicationContext extends AbstractRefreshableC
 		if (configResources != null) {
 			reader.loadBeanDefinitions(configResources);
 		}
-		// 以String的形式获得配置文件的位置,
+		// 以String的形式获得配置文件的位置,在构建classPathXml对象时设置过该值
 		String[] configLocations = getConfigLocations();
 		if (configLocations != null) {
 			reader.loadBeanDefinitions(configLocations);
