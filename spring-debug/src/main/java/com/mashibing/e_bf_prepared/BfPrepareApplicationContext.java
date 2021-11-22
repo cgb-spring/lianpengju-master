@@ -14,5 +14,7 @@ public class BfPrepareApplicationContext {
     public static void main(String[] args) {
         //测试加载
         ApplicationContext context = new ClassPathXmlApplicationContext("/e_bf_prepared/spring.xml");
+        Customer bean = context.getBean(Customer.class);
+        System.out.println(bean);
     }
 }

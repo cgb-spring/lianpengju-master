@@ -54,7 +54,7 @@ public class SpelExpressionParser extends TemplateAwareExpressionParser {
 	}
 
 
-	public SpelExpression parseRaw(String expressionString) throws ParseException {
+	public SpelExpression 	 parseRaw(String expressionString) throws ParseException {
 		return doParseExpression(expressionString, null);
 	}
 

@@ -118,7 +118,7 @@ class InternalSpelExpressionParser extends TemplateAwareExpressionParser {
 
 
 	@Override
-	protected SpelExpression doParseExpression(String expressionString, @Nullable ParserContext context)
+	protected SpelExpression  doParseExpression(String expressionString, @Nullable ParserContext context)
 			throws ParseException {
 
 		try {
