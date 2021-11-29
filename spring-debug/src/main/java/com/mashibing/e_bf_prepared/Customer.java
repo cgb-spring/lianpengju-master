@@ -6,11 +6,8 @@ package com.mashibing.e_bf_prepared;
  * @date 2021-11-21
  */
 public class Customer {
-
     private String name;
-
     private Address address;
-
     @Override
     public String toString() {
         return "Customer{" +

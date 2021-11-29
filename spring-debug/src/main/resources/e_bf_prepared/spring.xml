@@ -18,7 +18,7 @@
 <!--    </bean>-->
 
     <bean id="customer" class="com.mashibing.e_bf_prepared.Customer">
-        <property name="name" value="zhangsna"></property>
+        <property name="name" value="zhangsan   "></property>
         <property name="address" value="河北省_邯郸市_武安市"></property>
     </bean>
 
@@ -27,6 +27,16 @@
             <list>
                 <bean class="com.mashibing.e_bf_prepared.AddressPropertyEditorRegistrar"></bean>
             </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="com.mashibing.e_bf_prepared.Address">
+                    <value>com.mashibing.e_bf_prepared.AddressPropertyEditor</value>
+                </entry>
+            </map>
         </property>
     </bean>
 

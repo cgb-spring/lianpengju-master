@@ -1,6 +1,5 @@
 package com.mashibing.e_bf_prepared;
 
-import com.mashibing.selfEditor.AddressPropertyEditor;
 import org.springframework.beans.PropertyEditorRegistrar;
 import org.springframework.beans.PropertyEditorRegistry;
 

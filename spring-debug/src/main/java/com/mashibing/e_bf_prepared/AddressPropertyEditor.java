@@ -8,8 +8,7 @@ import java.beans.PropertyEditorSupport;
  * @description
  * @date 2021-11-21
  */
-public class AdressPropertyEditor extends PropertyEditorSupport {
-
+public class AddressPropertyEditor extends PropertyEditorSupport {
     @Override
     public void setAsText(String text) throws IllegalArgumentException {
         String[] s = text.split("_");
